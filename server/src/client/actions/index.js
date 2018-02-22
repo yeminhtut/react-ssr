@@ -6,7 +6,6 @@ const COOKIE_DOMAIN = { domain: '', path: '/' };
 
 export const FETCH_USERS = 'fetch_users';
 export const fetchUsers = () => async (dispatch, getState, api) => {
-  console.log('api', api);
   const res = await api.get('/users');
 
   dispatch({
@@ -54,6 +53,31 @@ export const fetchCurrentUser = () => async (dispatch, getState, api) => {
     type: FETCH_CURRENT_USER,
     payload: res
   });
+};
+
+export const FETCH_REQUIRED_DATA = 'fetch_required_data';
+export const fetchRequiredData = () => async (dispatch, getState) => {
+
+  function getUserAccount() {
+    return axios.get('http://dev-west-api.content.co/api/v1/portfolios/ymh/');
+  }
+
+  function getUserPermissions() {
+    return axios.get('http://dev-west-api.content.co/api/v1/portfolios/ymh/items/');
+  }
+
+  await axios.all([getUserAccount(), getUserPermissions()])
+  .then(axios.spread(function (acct, perms) {
+    // Both requests are now complete
+    dispatch({
+      type: FETCH_CONTENT,
+      payload: acct.data
+    });
+    dispatch({
+      type: FETCH_PORTFOLIO_ITEMS,
+      payload: perms.data
+    });
+  }));
 };
 
 export const FETCH_ADMINS = 'fetch_admins';

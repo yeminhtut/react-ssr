@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchContent, fetchPortfolioItems } from '../actions';
+import { fetchContent, fetchPortfolioItems, fetchRequiredData } from '../actions';
 import { Helmet } from 'react-helmet';
 
 class Portfolio extends Component {
@@ -12,9 +12,9 @@ class Portfolio extends Component {
     };
     this.toggleMode = this.toggleMode.bind(this);
   }
-  componentDidMount() {
-    this.props.fetchContent();
-    this.props.fetchPortfolioItems();
+  componentWillMount() {
+    // this.props.fetchContent();
+    // this.props.fetchPortfolioItems();
   }
 
   toggleMode(e) {
@@ -24,13 +24,14 @@ class Portfolio extends Component {
   head() {
     return (
       <Helmet>
-        <title>Here</title>
+        <title>Portfolio</title>
         <meta property="og:title" content="Users App" />
       </Helmet>
     );
   }
 
   render() {
+    //console.log(this.props);
     const items = this.props.items.results;
     return (
       <div>
@@ -74,15 +75,19 @@ class Portfolio extends Component {
 }
 
 function mapStateToProps(state) {
-  const { users, content, items } = state;
+  const { content, items } = state;
   return {
-    users,
     content,
     items
   };
 }
 
+// export default {
+//   component: connect(mapStateToProps, { fetchContent, fetchPortfolioItems })(Portfolio),
+//   loadData: ({ dispatch }) => dispatch(fetchContent(), dispatch(fetchPortfolioItems()))
+// };
+
 export default {
-  component: connect(mapStateToProps, { fetchContent, fetchPortfolioItems })(Portfolio),
-  loadData: ({ dispatch }) => dispatch(fetchContent(), dispatch(fetchPortfolioItems()))
+  component: connect(mapStateToProps, { fetchContent, fetchPortfolioItems, fetchRequiredData })(Portfolio),
+  loadData: ({ dispatch }) => dispatch(fetchRequiredData())
 };
