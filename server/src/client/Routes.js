@@ -17,14 +17,6 @@ export default [
         exact: true
       },
       {
-        ...AdminsListPage,
-        path: '/admins'
-      },
-      {
-        ...UsersListPage,
-        path: '/users'
-      },
-      {
         ...LoginPage,
         path: '/accounts/login'
       },
