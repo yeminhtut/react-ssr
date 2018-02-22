@@ -4,16 +4,16 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 const COOKIE_DOMAIN = { domain: '', path: '/' };
 
-export const FETCH_USERS = 'fetch_users';
-export const fetchUsers = () => async (dispatch, getState, api) => {
-  console.log('api', api);
-  const res = await api.get('/users');
-
-  dispatch({
-    type: FETCH_USERS,
-    payload: res
-  });
-};
+// export const FETCH_USERS = 'fetch_users';
+// export const fetchUsers = () => async (dispatch, getState, api) => {
+//   console.log('api', api);
+//   const res = await api.get('/users');
+//
+//   dispatch({
+//     type: FETCH_USERS,
+//     payload: res
+//   });
+// };
 
 //portfolio
 export const FETCH_CONTENT = 'fetch_content';
@@ -46,22 +46,22 @@ export const userLogin = (data) => async (dispatch, getState) => {
   });
 };
 
-export const FETCH_CURRENT_USER = 'fetch_current_user';
-export const fetchCurrentUser = () => async (dispatch, getState, api) => {
-  const res = await api.get('/current_user');
-
-  dispatch({
-    type: FETCH_CURRENT_USER,
-    payload: res
-  });
-};
-
-export const FETCH_ADMINS = 'fetch_admins';
-export const fetchAdmins = () => async (dispatch, getState, api) => {
-  const res = await api.get('/admins');
-
-  dispatch({
-    type: FETCH_ADMINS,
-    payload: res
-  });
-};
+// export const FETCH_CURRENT_USER = 'fetch_current_user';
+// export const fetchCurrentUser = () => async (dispatch, getState, api) => {
+//   const res = await api.get('/current_user');
+//
+//   dispatch({
+//     type: FETCH_CURRENT_USER,
+//     payload: res
+//   });
+// };
+//
+// export const FETCH_ADMINS = 'fetch_admins';
+// export const fetchAdmins = () => async (dispatch, getState, api) => {
+//   const res = await api.get('/admins');
+//
+//   dispatch({
+//     type: FETCH_ADMINS,
+//     payload: res
+//   });
+// };

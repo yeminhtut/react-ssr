@@ -74,9 +74,8 @@ class Portfolio extends Component {
 }
 
 function mapStateToProps(state) {
-  const { users, content, items } = state;
+  const { content, items } = state;
   return {
-    users,
     content,
     items
   };
