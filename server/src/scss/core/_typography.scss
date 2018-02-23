@@ -1,0 +1,174 @@
+
+html:not(.touch) {
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $sans-serif;
+  font-size: 100%;
+  // font-size-adjust: .5;
+  // letter-spacing: -.1px;
+  color: $gray-100;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  word-wrap: break-word;
+  // word-break: break-all;
+  // word-break: break-word; // Non standard for webkit
+  hyphens: auto;
+  cursor: default;
+}
+
+body,
+p {
+  font-size: 1em;
+  line-height: 1.475;
+
+  @media #{$xs-screen} {
+    line-height: 1.35;
+  }
+}
+
+// Standardization for angular-material
+// Remove when not needed
+button,
+input,
+select,
+textarea {
+  font-size: 14px;
+}
+
+textarea {
+  width: 100%;
+  border: 0;
+  background: inherit;
+  font-family: $sans-serif;
+  line-height: 1.8em;
+  overflow: hidden;
+  resize: none;
+}
+
+label {
+  font-size: 10px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
+
+// Miscellaneous tags
+em,
+i {
+  font-style: italic;
+}
+
+.strong,
+strong,
+b {
+  // font-weight: bold;
+  font-weight: 600;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.g-sort__link {
+  padding-bottom: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .2s $cubic;
+
+  &:hover {
+    color: $blue-80;
+  }
+}
+
+a.g-link {
+  color: $blue-alt;
+  padding-bottom: 2px;
+  margin-bottom: -3px;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px solid $blue-alt;
+
+  &:hover {
+    color: $blue-80;
+    border-bottom: 1px solid $blue-60;
+  }
+}
+
+.g-text__headline {
+  // .g-frame__text-primary--large
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.g-text__headline--center {
+  text-align: center;
+}
+
+.g-text__primary {
+  font-weight: 500;
+}
+
+.g-text__primary--white {
+  font-weight: 600;
+  color: $white;
+}
+
+.g-text__primary--center {
+  text-align: center;
+}
+
+.g-text__content {
+  font-size: 14px;
+  hyphens: manual;
+  word-break: break-word;
+}
+
+.g-text__content--center {
+  text-align: center;
+}
+
+.g-text__small {
+  font-weight: 500;
+  font-size: 12px;
+  // color: $gray-80;
+}
+
+.g-text__secondary {
+  // font-weight: 600;
+  font-size: 14px;
+  color: $gray-80;
+}
+
+.g-text__secondary--strong {
+  font-weight: 600;
+}
+
+.g-text__secondary--center {
+  text-align: center;
+}
+
+.g-text__secondary--white {
+  font-weight: 600;
+  color: $white;
+}
+
+a.g-text__secondary--white {
+  &:link, &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    color: $blue-40;
+  }
+}

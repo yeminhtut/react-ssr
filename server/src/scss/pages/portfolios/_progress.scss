@@ -1,0 +1,110 @@
+.c-progressbar__box {
+  border-radius: 5px;
+  background: $white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+  padding: 30px;
+  margin-bottom: 15px;
+}
+
+.c-progressbar {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.c-progressbar__item {
+  flex-basis: 50%;
+  height: 12px;
+  background: $gray-10;
+  list-style-type: none;
+  margin-right: 4px;
+  cursor: pointer;
+
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+    margin: 0;
+  }
+
+  &--active {
+    background: $blue-100;
+  }
+}
+
+@for $i from 1 through 4 {
+  .c-progressbar__detail-#{$i} {
+    &:after, &:before {
+      left: calc(((100% * #{$i}) / 4) - (100% / 4 / 2));
+    }
+  }
+}
+
+.c-progressbar__detail {
+  border: 1px solid $gray-10;
+  border-radius: 3px;
+  // background: $gray-5;
+  position: relative;
+  height: 50px;
+  margin-top: 15px;
+  font-size: 14px;
+  padding: 15px;
+
+  &:after, &:before {
+    content: '';
+    width: 0;
+    height: 0;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+
+  &:before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid $gray-10;
+    top: -8px;
+  }
+
+  &:after {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid $white;
+    top: -7px;
+  }
+
+  &--active {
+    color: $white;
+    border-color: $blue-100;
+    background: $blue-100;
+
+    &:after, &:before {
+      border-bottom-color: $blue-100;
+    }
+
+    // .c-progressbar__detail-title:after {
+    //   font-family: 'FontAwesome';
+    //   content: "\f00c";
+    //   position: absolute;
+    //   right: 10px;
+    //   top: 10px;
+    //   width: 20px;
+    //   height: 20px;
+    //   line-height: 20px;
+    //   background: $white;
+    //   color: $blue-100;
+    //   border-radius: 50%;
+    //   text-align: center;
+    // }
+  }
+}
+
+.c-progressbar__message {
+  text-align: center;
+  i {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+}

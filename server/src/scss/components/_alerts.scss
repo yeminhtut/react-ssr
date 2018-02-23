@@ -1,0 +1,255 @@
+// //
+// // NgToast Alerts
+// // --------------------------------------------------
+//
+// .ng-toast.ng-toast--left .ng-toast__list {
+//   margin-left: 10px;
+//   margin-bottom: 5px;
+// }
+//
+// $alert-padding:10px;
+// $line-height-computed:5px;
+// $alert-border-radius: 5px;
+// $alert-link-font-weight: 600;
+//
+// // Base styles
+// // -------------------------
+//
+// .alert {
+//   padding: 10px 10px;
+//   margin-bottom: $line-height-computed;
+//   border: 1px solid transparent;
+//   border-radius: $alert-border-radius;
+//   //left: 50%;
+//   color: $white;
+//   //position: absolute;
+//   top: 20px;
+//   z-index: 100;
+//
+//   background-color: $gray-100;
+//   color: $white;
+//
+//   a {
+//     color: $white;
+//     text-decoration: none;
+//   }
+//
+//   // Headings for larger alerts
+//   h4 {
+//     margin-top: 0;
+//     color: inherit;
+//   }
+//
+//   // Provide class for links that match alerts
+//   .alert-link {
+//     font-weight: $alert-link-font-weight;
+//   }
+//
+//   // Improve alignment and spacing of inner content
+//   > p,
+//   > ul {
+//     margin-bottom: 0;
+//   }
+//
+//   > p + p {
+//     margin-top: 5px;
+//   }
+// }
+//
+// // Dismissible alerts
+// //
+// // Expand the right padding and account for the close button's positioning.
+//
+// .alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+// .alert-dismissible {
+//   padding-right: ($alert-padding + 20);
+//
+//   // Adjust close link position
+//   .close {
+//     position: relative;
+//     top: -2px;
+//     right: -21px;
+//     color: inherit;
+//   }
+// }
+//
+// .alert-success {
+//   background: #d6e9c6;
+//   color: #468847;
+//   a {
+//     color: #468847;
+//   }
+// }
+//
+// .alert-error {
+//   background: #ec8787;
+//   color: #551313;
+//   a {
+//     color: #551313;
+//   }
+// }
+//
+// .toast-container{
+//   width: 100% !important;
+//   align-items: center !important;
+//   top: 20px !important;
+//   position: fixed !important;
+//   z-index: 1080 !important;
+//   margin-left: 0px !important;
+//   display: flex !important;
+//   flex-direction: column !important;
+//   left: 0px !important;
+//
+//
+//   @media #{$xs-screen} {
+//     left: 40% !important;
+//   }
+// }
+//
+// .notification{
+//   min-height: 20px !important;
+//   box-shadow: none !important;
+//   padding: 10px !important;
+//   border-radius: 5px !important;
+//   position: static !important;
+// }
+//
+// .toast-body{
+//   font-size: 14px;
+// }
+
+//
+// NgToast Alerts
+// --------------------------------------------------
+
+.ng-toast.ng-toast--left .ng-toast__list {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+$alert-padding:10px;
+$line-height-computed:5px;
+$alert-border-radius: 5px;
+$alert-link-font-weight: 600;
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: 10px 10px;
+  margin-bottom: $line-height-computed;
+  border: 1px solid transparent;
+  border-radius: $alert-border-radius;
+
+  background-color: $gray-100;
+  color: $white;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+
+  // Headings for larger alerts
+  h4 {
+    margin-top: 0;
+    color: inherit;
+  }
+
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: $alert-link-font-weight;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+
+  > p + p {
+    margin-top: 5px;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissible {
+  padding-right: ($alert-padding + 20);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+  }
+}
+
+.alert-success {
+  background: #d6e9c6;
+  color: #468847;
+  a {
+    color: #468847;
+  }
+}
+
+.alert-danger {
+  background: #ec8787;
+  color: #551313;
+  a {
+    color: #551313;
+  }
+}
+
+.alert-error {
+  background: #ec8787;
+  color: #551313;
+  a {
+    color: #551313;
+  }
+}
+
+
+.ng-toast.ng-toast--top, .ng-toast.ng-toast--top .ng-toast__list {
+    top: 0;
+    bottom: auto;
+}
+
+.ng-toast {
+    position: fixed;
+    z-index: 1080;
+    width: 100%;
+    height: 0;
+    margin-top: 20px;
+    text-align: center;
+}
+.ng-toast.ng-toast--top.ng-toast--center .ng-toast__list {
+    position: static;
+}
+.ng-toast.ng-toast--top, .ng-toast.ng-toast--top .ng-toast__list {
+    top: 0;
+    bottom: auto;
+}
+.ng-toast .ng-toast__list {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.ng-toast--animate-slide.ng-toast--center.ng-toast--top .ng-toast__message {
+    position: relative;
+    transition-property: top,margin-top,opacity;
+}
+
+.ng-toast .ng-toast__message {
+    display: block;
+    width: 100%;
+    text-align: center;
+}

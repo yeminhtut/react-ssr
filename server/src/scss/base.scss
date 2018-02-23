@@ -1,0 +1,53 @@
+// Vendor
+@import
+'lib/reset',
+'lib/polyfill';
+
+// Core
+@import
+'core/variables',
+'core/mixins',
+'core/utils',
+'core/animations',
+'core/typography',
+'core/overrides',
+'core/styles',
+'core/layout',
+'core/responsive';
+
+// Blocks
+@import
+'blocks/header',
+'blocks/section',
+'blocks/global';
+
+// Pages
+@import
+'pages/login/login',
+'pages/login/overview',
+'pages/profile',
+'pages/onboard',
+'pages/settings',
+'pages/guide',
+'pages/status',
+
+'pages/portfolios/portfolios',
+'pages/portfolios/grid',
+'pages/portfolios/profile',
+'pages/portfolios/progress';
+
+// Components
+@import
+'components/alerts',
+'components/buttons',
+'components/datepicker',
+'components/dialog',
+'components/dropdown',
+'components/expertise',
+'components/topic',
+'components/forms',
+'components/forms.select',
+'components/icons',
+'components/loader',
+'components/tooltip',
+'components/tags';

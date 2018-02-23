@@ -1,0 +1,31 @@
+/* Removes blue focus color */
+*:focus {outline:0 !important;}
+
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak { display: none !important;}
+
+[selected='selected'] { background-color: $blue-20; }
+::selection { background: $blue-20; }
+
+
+/* Removes yellow autofill color */
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px $white inset;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="password"],
+textarea,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+// .intercom-launcher-frame {
+//   visibility: hidden !important;
+// }
+

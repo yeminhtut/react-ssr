@@ -1,0 +1,361 @@
+
+.c-accounts__container {
+  display: flex;
+  flex-direction: row;
+  /*align-items: center;
+  justify-content: center;*/
+  position: relative;
+  min-height: calc(100vh - 51px);
+  width: 100%;
+  // background: linear-gradient(to bottom right, #1590FC 0, #1F7BDE 100%);
+  z-index: 0;
+
+  @media #{$sx-screen} {
+     overflow: auto;
+     // justify-content: normal;
+  }
+  
+  @media #{$ss-screen} {
+     flex-direction: column;
+  }
+}
+
+.c-login__icon {
+  height: 100px;
+  width: 100px;
+  margin: 25px auto 50px;
+
+  @media #{$xs-screen} {
+    height: 75px;
+    width: 75px;
+    margin: 25px auto;
+  }
+}
+
+.c-login__text-button {
+  font-size: 14px;
+  font-weight: 500;
+  &:hover {
+    color: $blue-100;
+  }
+
+  &:active {
+    color: $blue-alt;
+  }
+}
+
+.c-login__button--alternate {
+  margin: 20px;
+  color: $white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 18px;
+  min-height: 34px;
+  line-height: 34px;
+  border-radius: 3px;
+  transition: background-color .3s $cubic;
+  &:hover {
+    background-color: $white;
+  }
+}
+
+.c-login__link--white {
+  @include links;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.c-login__panel {
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  min-width: 375px;
+  max-width: 75%;
+  min-height: 100vh;
+  padding: 0 20px 20px;
+  background-color: $white;
+  box-sizing: border-box;
+  border-right: 1px solid $gray-10;
+  //position: absolute;
+  //left: 0;
+  //top: 0;
+  height: 100vh;
+  overflow: auto;
+  z-index: $z-content;
+  // &:hover:before {
+  //   opacity: .8;
+  // }
+
+  .c-input__input {
+    box-sizing: border-box;
+    height: 38px;
+    max-height: 38px;
+    width: 100%;
+    margin: 0;
+  }
+  
+  /*
+  @media #{$ss-screen} {
+     margin: 30px auto;
+     height: auto;
+     border-radius: 5px;
+     border: 0 none;
+  }
+  */
+
+  
+  @media #{$ss-screen} {
+    flex-grow: 1;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    border: 0 none;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+}
+
+.c-login__title {
+  font-weight: 500;
+  font-size: 1.125em;
+  line-height: 1.125em;
+}
+
+.c-login__note {
+  margin-top: 5px;
+}
+
+
+.c-login__forgot {
+  font-size: 12px;
+  align-items: center;
+  display: flex;
+}
+
+.c-login__brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.c-login__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  min-height: 36px;
+  
+  @media #{$ss-screen} {
+     margin-bottom: 30px;
+  }
+} 
+
+.c-login__content {
+  height: calc(100vh - 56px);
+  display: flex; 
+  flex-direction: column;
+  
+  @media #{$ss-screen} {
+    height: auto;
+  }
+  
+  form, .c-login__form {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.c-login__heading {
+  padding: 0px 10px 20px;
+}
+
+.c-login__name {
+  display: flex;
+  flex-direction: row;
+  
+  input {
+    width:  calc(50% / 0.875) !important; 
+    min-width:  calc(50% / 0.875) !important;
+    &:focus {
+      z-index: 2;
+    }
+    
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;     
+    }
+    
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -7.35% !important;
+    }
+  }
+}
+
+.c-login__name-error {
+  .c-input__message--error {
+    position: static;
+    // margin: -10px 0 0;
+  }
+  
+  &:last-child {
+    .c-input__message--error {
+      // margin-bottom: -10px;   
+    }
+  }
+}
+
+.c-login__label {
+  font-weight: 600;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+.c-login__column {
+  display: flex;
+  position: relative;
+  padding: 10px 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c-login__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 4px;
+}
+
+.c-login__terms {
+  hyphens: none;
+  font-weight: 500;
+  font-size: 12px;
+
+  a {
+    white-space: nowrap;
+  }
+
+  @media #{$xs-screen} {
+    font-size: 12px;
+  }
+
+}
+
+.c-login__input {
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  font-size: 14px;
+
+  font-size: 16px;
+  transform-origin: top left;
+  transform: scale(0.875);                      //  14px / 16px
+  width:  calc((100% - 65px) / 0.875) !important;
+  min-width:  calc((100% - 65px) / 0.875) !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: calc(36px / 0.875) !important;
+  padding: 0 calc(10px / 0.875);
+  border-radius: calc(3px / 0.875);
+  border-width : calc(1px / 0.875);
+
+}
+
+
+.c-login__password {
+  height: 38px;
+  border: 1px solid $gray-20;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: #090809;
+  font-size: 18px;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.c-password__button {
+  background-color: $gray-10;
+  font-size: 12px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 24px;
+  position: absolute;
+  padding: 1px 10px 0;
+  top: calc(50% - 12px);
+  right: 7.5px;
+
+  &.active {
+    background-color: $gray-20;
+  }
+}
+
+.c-password__strength {
+  position: relative;
+  height: 3px;
+  margin-top: 3px;
+  background: $gray-10;
+  // margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+.c-password__strength:before, .c-password__strength:after {
+  content: '';
+  height: inherit;
+  background: transparent;
+  display: block;
+  border-color: $white;
+  border-style: solid;
+  border-width: 0 5px 0 5px;
+  position: absolute;
+  width: 68px;
+  z-index: 10;
+}
+
+.c-password__strength:before {
+  left: 68px;
+}
+
+.c-password__strength:after {
+  right: 68px;
+}
+
+.c-password__strength-fill {
+  background: transparent;
+  height: inherit;
+  position: absolute;
+  width: 0;
+  border-radius: inherit;
+  transition: width 0.5s ease-in-out, background 0.25s;
+}
+
+.c-password__strength-fill[data-strength='0'] {
+  background: darkred;
+  width: 20%;
+}
+
+.c-password__strength-fill[data-strength='1'] {
+  background: orangered;
+  width: 40%;
+}
+
+.c-password__strength-fill[data-strength='2'] {
+  background: orange;
+  width: 60%;
+}
+
+.c-password__strength-fill[data-strength='3'] {
+  background: yellowgreen;
+  width: 80%;
+}
+
+.c-password__strength-fill[data-strength='4'] {
+  background: green;
+  width: 100%;
+}

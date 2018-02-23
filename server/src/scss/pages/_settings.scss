@@ -1,0 +1,101 @@
+.c-settings__user {
+  display: flex;
+  flex-direction: row;
+
+  @media #{$sm-screen} {
+    flex-direction: column;
+  }
+}
+
+.c-settings__user-form {
+  width: 100%;
+}
+
+.c-settings__user-profile {
+  margin: 8px 10px 0;
+  display: flex;
+  flex-direction: column;
+
+  @media #{$sm-screen} {
+    align-items: center;
+  }
+
+}
+
+.c-settings__user-profile-wrap {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  margin: 10px auto;
+}
+
+.c-settings__user-profile-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: $gray-20;
+}
+
+.c-settings__user-profile-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .3s all $cubic;
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.c-settings__user-profile-overlay {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: $black;
+  opacity: .4;
+}
+
+.c-settings__user-profile-icon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.c-settings__menu-header {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 12px;
+  color: $gray-80;
+  hyphens: none;
+  text-transform: uppercase;
+}
+
+.c-settings__menu-item {
+  padding: 5px 10px;
+  margin: 0 -10px;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+}
+
+.c-settings__menu-item.active {
+  color: $blue-100;
+  background-color: $blue-20;
+  border-radius: 2px;
+}
+
+hr {
+    margin: 10px 0;
+    border-width: 0;
+    border-top: 1px solid $gray-40;
+}

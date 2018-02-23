@@ -1,0 +1,99 @@
+// Connected to a JS hook
+.g-dropdown {
+  position: relative;
+  .g-dropdown__menu {
+    display: none;
+  }
+}
+
+.g-dropdown--right {
+  margin-right: -10px;
+}
+
+.g-dropdown--open {
+  .g-dropdown__menu {
+    display: flex;
+    flex-direction: column;
+    max-height: 320px;
+    right: 0;
+    overflow: auto;
+    z-index: $z-dropdown;
+  }
+}
+
+.g-dropdown__scroll {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.g-dropdown__menu {
+  /*border-radius: 8px;*/
+  background-color: $white;
+  box-shadow: 0 8px 20px -2px rgba(0, 0, 0, .25);
+  /* box-shadow: 0 13px 25px -7px rgba(0, 0, 0, .25); */
+  position: absolute;
+  color: $black;
+}
+
+.g-dropdown__menu-item {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  min-width: 100px;
+  min-height: 34px;
+  line-height: 34px;
+  vertical-align: middle;
+  border-radius: 0;
+  box-sizing: border-box;
+  user-select: none;
+  border: 0;
+  padding: 6px 8px;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 12px;
+  font-style: inherit;
+  font-variant: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  overflow: hidden;
+
+  &:hover,
+  &:focus {
+    background-color: $blue-20;
+  }
+
+  &:active {
+    background-color: $blue-40;
+  }
+
+  &--center {
+    @extend .g-dropdown__menu-item;
+    align-items: center;
+  }
+}
+
+
+/* Mentio Dropdown Setup */
+.dropdown-menu {
+  font-size: .8em;
+  max-height:175px;
+  overflow: hidden;
+  border: 1px solid $gray-10;
+  background-color: $white;
+  box-shadow: 0 8px 20px -2px rgba(0, 0, 0, .25);
+
+  li {
+    min-width: 150px;
+    padding: 5px 10px;
+    border-bottom: 1px solid $gray-20;
+    list-style: none;
+
+    &.active {
+      cursor: pointer;
+      padding: 5px 10px;
+      border-bottom: 1px solid $gray-20;
+      background-color: $blue-20;
+      list-style: none;
+    }
+  }
+}

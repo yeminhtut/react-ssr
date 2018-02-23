@@ -1,0 +1,37 @@
+// Generic Section Components
+// -------------------
+
+.u-pad {
+  margin: 10px;
+  &__top {margin-top: 10px !important;}
+  &__right {margin-right: 10px !important;}
+  &__bottom {margin-bottom: 10px !important;}
+  &__left {margin-left: 10px !important;}
+}
+
+// .u-no-pad {
+//   padding: 0 !important;
+//   &__top {padding-top: 0 !important;}
+//   &__right {padding-right: 0 !important;}
+//   &__bottom {padding-bottom: 0 !important;}
+//   &__left {padding-left: 0 !important;}
+// }
+
+.u-expand { 
+  width: 100% !important;
+}
+
+.u-no-zoom {
+  font-size: 16px;
+  transform-origin: top left;
+  transform: scale(0.875);                      //  14px / 16px
+  width:  calc(100% / 0.875) !important;
+  min-width:  calc(100% / 0.875) !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: calc(38px / 0.875) !important;
+  padding: 0 calc(10px / 0.875);
+  border-radius: calc(3px / 0.875);
+  border-width : calc(1px / 0.875);
+}
+

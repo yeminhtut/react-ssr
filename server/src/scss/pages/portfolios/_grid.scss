@@ -1,0 +1,272 @@
+// Grid component
+.portfolio__grid {
+  display: inline-block;
+  width: calc(100% - 380px);
+  margin-left: 30px;
+  vertical-align: top;
+
+  @media #{$sm-screen} {
+    display: block;
+    width: 100%;
+    margin: 20px 0 0;
+  }
+}
+
+.portfolio__gutter {
+  width: 30px;
+
+  @media #{$sm-screen} {
+    width: 20px;
+  }
+}
+
+.portfolio__item {
+  display: inline-block;
+  position: relative;
+  width: calc(25% - 90px / 4);
+  min-height: 100px;
+  border-radius: 5px;
+  background: $white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+  // overflow: hidden;
+  // z-index: $z-content;
+  box-sizing: border-box;
+
+  @media #{$mdl-screen} {
+    width: calc(33.3% - 60px / 3);
+  }
+
+  @media #{$md-screen} {
+    width: calc(50% - 30px / 2);
+  }
+
+  @media #{$sm-screen} {
+    width: calc(50% - 20px / 2);
+  }
+
+  @media #{$sx-screen} {
+    width: 100%;
+  }
+
+  &.is-dragging {
+    z-index: $z-important;
+  }
+}
+
+.p-item__thumbnail {
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.p-item__details {
+  padding: 30px;
+}
+
+.p-item__label {
+  color: $gray-40;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.p-item__title {
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.p-item__content {
+  margin-top: 15px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.p-item__link {
+  display: block;
+  transition: .3s all $cubic;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  overflow: hidden;
+
+  &:hover {
+    text-decoration-color: $black;
+  }
+}
+
+.p-item__controls {
+  height: 40px;
+
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: hidden;
+
+  input {
+    width: 50%;
+    height: 100%;
+    transition: .3s all $cubic;
+    border: 0;
+    background: $gray-20;
+    color: $gray-60;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 40px;
+
+    &:hover {
+      background: $gray-40;
+      color: $gray-80;
+    }
+  }
+
+  button {
+    width: 50%;
+    height: 100%;
+    transition: .3s all $cubic;
+    border: 0;
+    background: $gray-20;
+    color: $gray-60;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 40px;
+
+    &:hover {
+      background: $gray-40;
+      color: $gray-80;
+      cursor: pointer;
+    }
+  }
+}
+
+.p-item__edit {
+  padding: 20px;
+
+  label {
+    margin-left: 5px;
+    color: $gray-80;
+    font-size: 15px;
+  }
+
+  .p-edit__thumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    .p-thumb__checkbox {
+      display: inline-block;
+      flex-grow: 1;
+      margin-bottom: 8px;
+      padding-right: 8px;
+    }
+  }
+
+  .p-edit__uploadThumb {
+    display: inline-block;
+    margin: 0 auto 8px;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 3px;
+    background: $gray-80;
+    color: $white;
+    font-size: 13px;
+    font-weight: 700;
+    position: relative;
+  }
+
+  .p-edit__text {
+    @extend %portfolio__textbox;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 10px;
+  }
+
+  .p-edit__textarea {
+    @extend %portfolio__textarea;
+    padding: 10px;
+  }
+}
+
+.p-edit__upload {
+  margin-bottom: 15px;
+
+  .p-edit__dropbox {
+    transition: .3s all $cubic;
+    border: 3px dashed $gray-20;
+    border-radius: 3px;
+    background: $gray-5;
+
+    &--accept {
+      border-color: $green-40;
+      background: $green-10;
+    }
+
+    &--reject {
+      border-color: $red-40;
+      background: $red-10;
+    }
+
+    p {
+      padding: 10px;
+      color: $gray-60;
+      font-size: 16px;
+      font-weight: 300;
+      text-align: center;
+      box-sizing: border-box;
+    }
+  }
+
+  span {
+    display: block;
+    margin-top: 5px;
+    color: $gray-40;
+    font-size: 14px;
+    text-align: right;
+  }
+}
+
+.p-edit__uploaded {
+  position: relative;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid $gray-20;
+  border-radius: 3px;
+  box-sizing: border-box;
+
+  p {
+    margin-right: 28px; // 18 (icon) + 10 (spacing) = 28px
+    color: $gray-80;
+    font-size: 14px;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    height: 18px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}
+
+// Packery & Draggabilly styles
+.packery-drop-placeholder {
+  transition: transform .2s;
+  border: 3px dashed $gray-40;
+  border-radius: 5px;
+  background: $gray-10;
+  box-sizing: border-box;
+}
+
+.is-dragging,
+.is-positioning-post-drag {
+  box-shadow: 0 1px 30px 2px rgba(0, 0, 0, .3);
+  z-index: $z-mask;
+}

@@ -1,0 +1,10 @@
+[ng-show="app.LoaderService.finished"].ng-hide-remove,
+[ng-show="app.LoaderService.finished"].ng-hide-add {
+  transition: opacity ease .25s;
+}
+[ng-show="app.LoaderService.finished"].ng-hide-remove {
+  opacity: 0;
+}
+[ng-show="app.LoaderService.finished"].ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}

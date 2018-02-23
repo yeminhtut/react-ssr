@@ -1,0 +1,135 @@
+// Z indices
+// -------------------
+// $z-dialog: 400;
+
+$z-important: 200;
+$z-dialog-dropdown: 92;
+$z-dialog: 91;
+$z-dialog-mask: 90;
+$z-nav: 89;
+$z-nav-dropdown: 88;
+$z-calendar: 82;
+$z-dropdown: 82;
+$z-alert: 79;
+
+$z-semi-imprt: 50;
+$z-mask: 11;
+$z-content: 10;
+$z-base: 8;
+$z-sidebar: 1;
+$z-background: 0;
+
+
+// Media Queries
+$xs-min-screen: '(min-width: 480px)';
+$sx-min-screen: '(min-width: 700px)';
+$ss-min-screen: '(min-width: 768px)';
+$sm-min-screen: '(min-width: 960px)';
+$md-min-screen: '(min-width: 1280px)';
+$mba-min-screen: '(min-width: 1440px)';
+$mdl-min-screen: '(min-width: 1600px)';
+$lg-min-screen: '(min-width: 1920px)';
+
+$xs-screen: '(max-width: 480px)';
+$sx-screen: '(max-width: 700px)';
+$ss-screen: '(max-width: 768px)';
+$sm-screen: '(max-width: 960px)';
+$md-screen: '(max-width: 1280px)';
+$mba-screen: '(max-width: 1440px)';
+$mdl-screen: '(max-width: 1600px)';
+$lg-screen: '(max-width: 1920px)';
+
+// Colors
+// -------------------
+
+$black: #202020;
+$white: #fff;
+
+$yellow-alt: #cba13c;
+$yellow-100: #feca4c;
+$yellow-80: #fed570;
+$yellow-60: #fedf94;
+$yellow-40: #ffeab7;
+$yellow-20: #fff4db;
+$yellow-5: #fffcf6;
+
+$teal-alt: #3f989a;
+$teal-100: #4fbec1;
+$teal-80: #72cbcd;
+$teal-60: #95d8da;
+$teal-40: #b9e5e6;
+$teal-20: #dcf2f3;
+$teal-5: #f6fcfc;
+
+// $ripe-blueberry: #4682c3;
+$bold-blue: #3175e2;
+$blue-alt: #1762b1;
+$blue-100: #1d7bde;
+$blue-80: #4a95e5;
+$blue-60: #77b0eb;
+$blue-40: #a5caf2;
+$blue-20: #d2e5f8;
+$blue-10: #e3effb;
+$blue-5: #f3f8fd;
+
+$gray-alt: #31373C;
+$gray-100: #404950;
+$gray-80: #64707B;
+$gray-60: #80909D;
+$gray-40: #AFC0CD;
+$gray-20: #CBD6E0;
+$gray-10: #DDE4EA;
+$gray-5: #F2F4F6;
+
+
+//http://meyerweb.com/eric/tools/color-blend/#E9E9E9:F6F6F6:9:hex
+// switch out light greys until desired match
+
+$green-10: #eefbe9;
+$green-40: #a8ea8f;
+$green-light: #81e0a9;
+$green: #44b559;
+$green-dark: #1b7a43;
+
+$red-10: #fdebe9;
+$red-40: #f59992;
+$red-light: #f7ada7;
+$red: #ef5c50;
+$red-dark: #bf4940;
+
+$cubic: cubic-bezier(.165, .84, .44, 1);
+$basic-shadow: 0 1px 3px rgba(74, 76, 74, .15);
+$login-shadow: 0 1px 5px rgba(74, 76, 74, .6);
+$big-shadow: 0 1px 50px rgba(74, 76, 74, .6);
+$bigger-shadow: 0 2px 250px rgba(74, 76, 74, .6);
+
+
+// Fonts
+// -------------------
+$sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$serif: Georgia, Times, serif;
+$code: 'Courier New', Courier, monospace;
+$fontawesome: 'FontAwesome';
+
+.yellow {color: $yellow-100;}
+.teal {color: $teal-100;}
+.green {color: $green;}
+.red {color: $red;}
+
+.green-dark {color: $green-dark;}
+.red-dark {color: $red-dark;}
+
+.blue-5 {color: $blue-5;}
+.blue-20 {color: $blue-20;}
+.blue-40 {color: $blue-40;}
+.blue-60 {color: $blue-60;}
+.blue-80 {color: $blue-80;}
+.blue {color: $blue-100;}
+
+.white {color: $white;}
+.gray-40 {color: $gray-40;}
+.black {color: $black;}
+
+.bg-blue {color: $white; background-color: $blue-100;}
+.bg-green {color:  $white; background-color: $green;}
+.bg-white {color: $black; background-color:  $white;}

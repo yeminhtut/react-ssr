@@ -1,0 +1,197 @@
+%c-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+%c-icon-tiny {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+%c-icon-small {
+  width: 25px;
+  height: 25px;
+  min-width: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+%c-icon-large {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.c-icon {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+
+  &__icon {
+
+    @extend %c-icon;
+    background-color: $white;
+
+    &--transparent {
+      @extend %c-icon;
+      background-color: transparent;
+    }
+
+    &--square {
+      @extend  %c-icon;
+      border-radius: 0;
+    }
+
+    &--small {
+      @extend %c-icon-small;
+      background-color: $white;
+    }
+
+    &--tiny {
+      @extend %c-icon-tiny;
+    }
+
+    &--large {
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+    }
+
+    &--editor {
+      @extend  %c-icon;
+      font-size: 15px;
+      padding: 5px 10px;
+    }
+
+  }
+}
+
+.c-icon--first {
+  // background-color: $blue-5;
+  margin-right: 20px;
+}
+
+// SVG Icon Styles
+.i-close {
+  width: 24px;
+  height: 24px;
+
+  #close-thin {
+    fill: $black;
+  }
+
+  &:focus,
+  &:hover,
+  &:focus a,
+  &:hover a {
+    #close-thin {
+      fill: lighten($gray-60, 20%);
+    }
+  }
+
+  &:active,
+  &:active a {
+    #close-thin {
+      fill: darken($gray-60, 20%);
+    }
+  }
+}
+
+
+.i-close--white {
+  width: 24px;
+  height: 24px;
+
+  #close-thin {
+    fill: $white;
+  }
+
+  &:focus,
+  &:hover,
+  &:focus a,
+  &:hover a {
+    #close-thin {
+      fill: darken($gray-20, 60%);
+    }
+  }
+
+  &:active,
+  &:active a {
+    #close-thin {
+      fill: darken($gray-20, 80%);
+    }
+  }
+}
+
+.i-settings {
+  width: 24px;
+  height: 24px;
+
+  #settings {
+    stroke: $black;
+  }
+}
+
+.i-help {
+  width: 24px;
+  height: 24px;
+
+  #settings {
+    stroke: $black;
+  }
+
+  // background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 50 50"><g id="Page-1" fill="none" fill-rule="evenodd"><g id="help"><g id="Group" transform="rotate(45 23.293 25.707)"><circle id="Oval-6" cx="24.1363" cy="24" r="16.678213" stroke="#020303" stroke-width="2.85" transform="rotate(45 24.136 24)"/><path id="Combined-Shape" fill="#020303" fill-rule="nonzero" d="M16.793457 11.308765c-.785124-.883265-2.10067-.920218-2.934893-.085994l-2.511462 2.51147c-.835772.83577-.802197 2.14539.085994 2.934893l5.795807 5.15183c.13486-1.163274.64848-2.290982 1.540858-3.18336.88895-.88895 2.01143-1.402046 3.16996-1.539287l-5.14626-5.789544zM31.038727 21.8117l5.786553-5.1436c.88819-.789503.921765-2.09912.085993-2.934893l-2.51146-2.511462c-.834226-.834224-2.14977-.79727-2.934895.085994l-5.145295 5.78845c1.161804.1356 2.28789.64906 3.179205 1.540374.890275.890273 1.403574 2.01477 1.539898 3.175132zm-13.809754 4.369396l-5.798252 5.154c-.88326.785126-.92021 2.10067-.08599 2.934894l2.51146 2.511462c.83577.835772 2.14539.802197 2.934898-.085994l5.14868-5.792266c-1.158543-.137234-2.281036-.65033-3.169996-1.539292-.892236-.892236-1.405834-2.019728-1.540793-3.182804zm9.090607 4.72421l5.147714 5.79118c.789503.88819 2.09912.921766 2.934893.085994l2.51146-2.51146c.834226-.834226.797273-2.14977-.085992-2.934895l-5.789-5.145776c-.13642 1.16016-.6497 2.28444-1.53983 3.17458-.891327.89132-2.01743 1.40478-3.179246 1.54037z"/><circle id="Oval-6" cx="24.1363" cy="24" r="8.467097" stroke="#020303" stroke-width="3" transform="rotate(45 24.136 24)"/></g></g></g></svg>');
+}
+
+
+.i-logout {
+  // width: 16px;
+  // height: 16px;
+
+  #icon {
+    fill: $black;
+  }
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: all .3s ease;
+
+  &.toggle {
+    transform: rotate(0deg);
+  }
+}
+
+
+.i-verified {
+  color: $blue-100;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 14px;
+  line-height: 28px;
+  border: 2px solid $blue-100;
+  border-radius: 3px;
+  padding: 0 8px;
+  box-sizing: border-box;
+
+  &:before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    margin-right: 5px;
+  }
+  &:after {
+    content: 'Verified';
+  }
+}

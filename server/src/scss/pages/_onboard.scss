@@ -1,0 +1,190 @@
+%onboard__textfield {
+  display: block;
+  padding: 10px;
+  border: 1px solid $gray-20;
+  border-radius: 3px;
+  color: $gray-80;
+  font-size: .8em;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $gray-40;
+  }
+}
+
+.onboard__container {
+  // position: absolute;
+  display: flex;
+  height: calc(100vh - 51px);
+  justify-content: center;
+  align-items: center;
+}
+
+.onboard__dialog {
+  width: 650px;
+  max-width: 90%;
+  padding: 30px;
+  border-radius: 5px;
+  background: $white;
+  font-size: 20px;
+  box-shadow: $basic-shadow;
+  box-sizing: border-box;
+
+  @media #{$xs-screen} {
+    max-width: 100vw;
+    height: calc(100vh - 51px);
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+}
+
+.onboard__title {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.onboard__heading {
+  display: block;
+  color: $gray-60;
+  margin: 30px 0 5px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.onboard__textarea {
+  @extend %onboard__textfield;
+  line-height: 1.5;
+  overflow-y: auto;
+}
+
+
+.onboard__ui-select {
+  .selectize-input {
+    height: 40px;
+    margin: 0;
+
+    input::placeholder {
+      color: $gray-40;
+      font-size: 16px;
+    }
+  }
+
+  .selectize-control.single .selectize-input::after {
+    border-color: $gray-80 transparent transparent;
+  }
+
+  .ui-select-match {
+    color: $gray-80;
+    font-size: 16px;
+  }
+}
+
+.onboard__button {
+  margin-top: 30px;
+  padding: 0;
+  text-align: right;
+
+  // input {
+  //   margin: 0;
+  //   padding: 0;
+  //   transition: .3s all $cubic;
+  //   border: 0;
+  //   border-bottom: 3px solid transparent;
+  //   background: $white;
+  //   color: $gray-100;
+  //   font-size: 1em;
+  //   font-weight: 700;
+  //   cursor: pointer;
+
+  //   &:hover {
+  //     border-color: $gray-100;
+  //   }
+  // }
+}
+
+.c-dialog__section {
+  transition: opacity .5s ease-out;
+}
+
+.c-do__workflow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-do__workflow-item {
+  width: 200px;
+  text-align: center;
+}
+
+.c-do__workflow-image {
+  width: 150px;
+}
+
+.c-do__workflow-title {
+  color: $white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+.c-do__workflow-text {
+  color: $white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c-onboard__profile-wrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  // margin: 10px auto;
+}
+
+.c-onboard__profile-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: $gray-20;
+}
+
+.c-onboard__profile-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .3s all $cubic;
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.c-onboard__profile-overlay {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: $black;
+  opacity: .4;
+}
+
+.c-onboard__profile-icon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.react-datepicker-wrapper, .react-datepicker__input-container{
+  display: block !important;
+}

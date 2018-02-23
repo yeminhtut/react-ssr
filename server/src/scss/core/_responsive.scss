@@ -1,0 +1,6 @@
+//Handle common responsive media screens
+.hide-xs {
+  @media #{$xs-screen} {
+    display: none !important;
+  }
+}

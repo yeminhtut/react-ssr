@@ -1,0 +1,239 @@
+// Basic Grid Layout
+
+//  ______________________________________________  .g-grid__container
+// |   ___________________   ___________________    .g-grid__two (can be in container)
+// |  |                   | |                   |   .g-grid__item
+// |  |                   | |                   |   .g-frame-container (can be in grid-item)
+// |  |                   | |                   |   .g-frame
+
+@mixin g-flex-row-start-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+@mixin g-flex-row-start-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin g-flex-row-center-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin g-flex-row-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@mixin g-flex-row-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@mixin g-flex-row-space-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin g-hover-effect {
+  &[ui-sref]:hover,
+  &[ng-click]:hover,
+  &[href]:hover {
+    transition: background-color .25s $cubic;
+    background-color: $blue-10;
+  }
+}
+
+// Frames
+
+
+.g-frame {
+
+  @include g-hover-effect;
+  @include g-flex-row-start-center;
+  // box-shadow: $basic-shadow;
+  // border: 1px solid $gray-20;
+  // border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  // background-color: rgba(1,200,200,.4) !important;
+
+  // &:not(last-of-type) { border-top: 0;}
+  & ~ & {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    // border-top: 0;
+    // background-color: rgba(200,1,200,.4)!important;
+  }
+
+  &:last-of-type {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    // background-color: rgba(200,200,1,.4)!important;
+  }
+}
+
+.g-frame__container {
+  box-shadow: $basic-shadow;
+  border-radius: 5px;
+
+  & ~ & {
+    margin-top: 10px;
+  }
+}
+
+.g-frame--transparent {
+  padding: 20px 10px;
+  @include g-flex-row-start-center;
+}
+
+.g-frame__headline {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.g-frame__subheadline {
+  padding: 0 10px 20px;
+}
+
+// Empty State
+
+.g-empty__frame {
+  @extend .g-text__column--center;
+  min-width: 320px;
+  min-height: 200px;
+}
+
+.g-empty__full {
+  @extend .g-text__column--center;
+  min-width: 320px;
+  min-height: calc(100vh - 100px);
+}
+
+.g-empty__table {
+  @extend .g-text__column--center;
+  min-width: 320px;
+  min-height: calc(80vh - 100px);
+}
+
+.g-empty__table-container {
+  border: 1px solid $gray-20;
+  border-top: 0;
+}
+
+.g-empty__image {
+  width: 200px;
+  margin: 20px;
+}
+
+
+.g-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.g-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.g-row--space-between {
+  @include g-flex-row-space-between;
+}
+
+
+// Frame Text Elements
+// group left for backwards compat
+.g-text__group,
+.g-text__column {
+  display: flex;
+  flex-direction: column;
+  text-overflow: ellipsis;
+  // overflow: hidden;
+  // hidden is causing issues with tooltips
+  white-space: nowrap;
+}
+
+.g-text__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.g-text__column--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.g-text__column--wrap {
+  display: flex;
+  flex-direction: column;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.g-frame__action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  // This because justify-self doesnt exist
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.g-frame__action--small {
+  @extend .g-frame__action;
+  height: 17px;
+}
+
+.g-grid__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.g-grid__item {
+  // flex-grow: 1;
+  flex-basis: 100%;
+  width: 100%;
+}
+
+.g-link__anchor{
+  color: $blue-100;
+  text-decoration: underline;
+}
+
+.g-link__anchor:hover{
+  cursor: pointer
+}

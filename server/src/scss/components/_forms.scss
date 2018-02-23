@@ -1,0 +1,348 @@
+//
+// Forms
+// --------------------------------------------------
+
+.c-settings__form {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin c-input__group {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 8px 10px;
+}
+
+.c-input__container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  @media #{$xs-screen} {
+    flex-wrap: wrap;
+  }
+}
+
+.c-input__group {
+  @include c-input__group;
+  flex: 1 1 50%;
+}
+
+.c-input__title {
+
+  padding: 0 8px;
+  font-weight: 500;
+  font-size: 1.125em;
+  line-height: 1.125em;
+  text-align: center;
+}
+
+.c-input__title--white {
+  @extend .c-input__title;
+  color: $white;
+}
+
+.c-input__label-container {
+  @include g-flex-row-space-between;
+}
+
+.c-input__repeat {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.c-input__repeat-button {
+  @include links;
+  font-size: .825em;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+.c-input__group--no-margin {
+  @include c-input__group;
+  margin-left: 0;
+  margin-right: 0;
+  flex: 1 1 50%;
+}
+
+.c-input__label {
+  @extend .g-text__content;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+.c-input__message-container {
+  position: relative
+}
+
+.c-input__message {
+  padding: 5px 0 0;
+  font-size: 12px;
+  // margin: -10px 0 -27px;
+  // margin: -10px 0;
+  // position: absolute;
+  white-space: nowrap;
+}
+
+.c-input__message--error {
+  @extend .c-input__message;
+  color: $red;
+  // margin:-10px 0 -27px;
+  white-space: nowrap;
+}
+
+.c-input__error {
+  color: $red-dark;
+}
+
+.c-input__input {
+  height: 36px;
+  max-height: 36px;
+  border-radius: 3px;
+  border: 1px solid $gray-20;
+  padding: 0 10px;
+  flex: 1 1 auto;
+  margin-bottom: 10px;
+  @include focus;
+}
+
+// For inlined inputs
+.c-input__input--left {
+  height: 36px;
+  border-radius: 3px 0 0 3px;
+  border: 1px solid $gray-20;
+  padding: 0 8px;
+  // margin-bottom: 10px;
+
+}
+
+.c-input__input--upload-link {
+  @extend .c-input__input--left;
+  width: 195px;
+}
+
+.c-input__inline {
+  border: 0;
+  border-bottom: 2px dotted $white;
+  margin: 0 -1px;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+  background-color: transparent;
+  outline: none;
+
+  &--black {
+    @extend .c-input__inline;
+    border-bottom: 2px dotted $black;
+  }
+}
+
+// For inlined button inputs
+.c-input__button {
+  @include g-button;
+
+  min-width: 88px;
+  min-height: 36px;
+  line-height: 36px;
+
+  margin-left: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.c-input__user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.c-input__user-selection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 8px;
+}
+
+.c-input__input--margin {
+  @extend .c-input__input;
+  margin: 6px 8px;
+}
+
+datepicker:after {
+  position: absolute;
+  top: 50%;
+  right: 17px;
+  display: block;
+  width: 0;
+  height: 0;
+  margin-top: -8px;
+  border-color: $black transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: ' ';
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.c-input__textarea {
+  background-color: $white;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid $gray-20;
+  padding: 8px;
+  line-height: 1.6em;
+  margin-bottom: 10px;
+  min-height: 100px;
+}
+
+.c-input__tags {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 7px 6px;
+  min-height: 36px;
+  max-height: none !important;
+  height: auto !important;
+  
+  .tag-item {
+    padding: 2px 7px 5px;
+    cursor: default;
+    border: 1px solid $gray-20;
+    display: inline-block;
+    
+    height: 32px;
+    line-height: 26px;
+    margin: 6px 8px -5px 0;
+    font-weight: 500;
+    box-sizing: border-box;
+    max-width: 100%;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
+    border-radius: 3px;
+    color: $gray-60;
+    font-size: 14px;  
+  
+    span {
+      margin-right: 14px;
+      vertical-align: middle;
+      max-width: 100%;
+      display: block;
+      box-sizing: border-box;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    
+    .remove-button {
+      vertical-align: middle;
+      position: absolute;
+      right: 0;
+      top: 2px;
+      padding: 0 6px;
+    }
+  }
+
+  .input {
+    border: 0;
+    margin-top: 13px;
+    height: 24px;
+    line-height: 20px;
+    font-weight: 400;
+    box-sizing: border-box;
+    color: $black;
+    min-width: 100px;
+
+    position: relative;
+    top: -3px;
+    max-width: 100%;
+  }
+
+  .tag-list {
+    display: inline;
+    vertical-align: middle;
+    max-width: 100%;
+  }
+
+  .host {
+    width: 100%;
+  }
+
+}
+
+.c-input__tags--wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-top: 8px;
+
+  .c-input__tags {
+    margin: 0;
+    padding-right: 63px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  > button {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    margin: 0;
+    width: 55px;
+    min-width: 55px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0;
+    min-height: 0;
+  }
+  
+  // Hide when reach max tags
+  .ng-valid-min-tags {
+    input {
+      display: none;
+    }
+  }
+}
+
+.c-input__topic--wrapper {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  max-height: 36px;
+  border-radius: 3px;
+  border: 1px solid $gray-20;
+  padding: 0 10px;
+  flex: 1 1 auto;
+
+  @include focus;
+
+}
+
+
+// Adding contrast to placeholder
+*::-webkit-input-placeholder { color: $gray-80; }
+          *:-moz-placeholder { color: $gray-80; }
+         *::-moz-placeholder { color: $gray-80; }
+     *:-ms-input-placeholder { color: $gray-80; }
+
+// Error Styling & Validation
+textarea.ng-invalid.ng-dirty,
+input.ng-invalid.ng-dirty,
+.c-input__textarea.ng-invalid.ng-dirty {
+  color: $red-dark !important;
+  border-color: $red-dark !important;
+    &::-webkit-input-placeholder { color: $red-dark !important; }
+              &:-moz-placeholder { color: $red-dark !important; }
+             &::-moz-placeholder { color: $red-dark !important; }
+         &:-ms-input-placeholder { color: $red-dark !important; }
+  & *::-webkit-input-placeholder { color: $red-dark !important; }
+            & *:-moz-placeholder { color: $red-dark !important; }
+           & *::-moz-placeholder { color: $red-dark !important; }
+       & *:-ms-input-placeholder { color: $red-dark !important; }
+}
+
+
+
