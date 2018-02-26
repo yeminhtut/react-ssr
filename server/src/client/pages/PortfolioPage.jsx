@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchContent, fetchPortfolioItems, fetchRequiredData } from '../actions';
 import { Helmet } from 'react-helmet';
+import { PortfolioList } from '../components/PortfolioList';
 
 class Portfolio extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Portfolio extends Component {
   }
 
   render() {
-    const items = this.props.items.results;
+    const { items } = this.props;
     return (
       <div>
         {this.head()}
@@ -54,9 +55,17 @@ class Portfolio extends Component {
             Preview
             </button>
           </div>
+          <div className="portfolio__profile">
+            Profile Component
+          </div>
+          <div className="portfolio__add">
+            Add Component
+          </div>
+          <PortfolioList
+            items={items}
+          />
       </div>
-      </div>
-
+    </div>
     );
   }
 }

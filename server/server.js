@@ -1,10 +1,17 @@
-import 'babel-polyfill';
-import express from 'express';
-import { matchRoutes } from 'react-router-config';
-import proxy from 'express-http-proxy';
-import Routes from './src/client/Routes';
-import renderer from './src/helpers/renderer';
-import createStore from './src/helpers/createStore';
+// import 'babel-polyfill';
+// import express from 'express';
+// import { matchRoutes } from 'react-router-config';
+// import proxy from 'express-http-proxy';
+// import Routes from './src/client/Routes';
+// import renderer from './src/helpers/renderer';
+// import createStore from './src/helpers/createStore';
+
+const express = require('express');
+const React = require('react');
+const proxy = require('express-http-proxy');
+const Routes = require('./src/client/Routes');
+const renderer = require('./src/helpers/renderer');
+const createStore = require('./src/helpers/createStore');
 
 const app = express();
 
