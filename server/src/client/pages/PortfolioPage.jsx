@@ -1,21 +1,49 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchContent, fetchPortfolioItems, fetchRequiredData } from '../actions';
+import Cookies from 'universal-cookie';
+import { fetchContent, fetchPortfolioItems, fetchRequiredData, fetchCurrentUser } from '../actions';
 import { Helmet } from 'react-helmet';
 import { PortfolioList } from '../components/PortfolioList';
+import { AddPortfolio } from '../components/AddPortfolio';
 
+const cookies = new Cookies();
 class Portfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
       toggleMode: 'edit',
       items: '',
+      authenticatedUser: false,
     };
     this.toggleMode = this.toggleMode.bind(this);
   }
   componentWillMount() {
     this.props.fetchContent();
     this.props.fetchPortfolioItems();
+    const token = cookies.get('token');
+    if (token) {
+      this.props.fetchCurrentUser(token);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // this.setState({ userPortfolio: nextProps.portfolio });
+    // if (nextProps.portfolio.items && nextProps.portfolio.items.results) {
+    //   this.setState({ changedItems: nextProps.portfolio.items.results });
+    // }
+
+    if (nextProps.content && nextProps.authentication.user) {
+      if (nextProps.authentication.user && nextProps.authentication.user.id === nextProps.content.id) {
+        this.setState({ authenticatedUser: true });
+      }
+    }
+    // if (nextProps.profile.error) {
+    //   this.setState({ notFound: true });
+    // }
+
+    if (!nextProps.authentication.user) {
+      this.setState({ authenticatedUser: false });
+    }
   }
 
   toggleMode(e) {
@@ -55,12 +83,9 @@ class Portfolio extends Component {
             Preview
             </button>
           </div>
-          <div className="portfolio__profile">
-            Profile Component
-          </div>
-          <div className="portfolio__add">
-            Add Component
-          </div>
+          {this.state.authenticatedUser &&
+            <AddPortfolio />
+          }
           <PortfolioList
             items={items}
           />
@@ -71,8 +96,11 @@ class Portfolio extends Component {
 }
 
 function mapStateToProps(state) {
-  const { content, items } = state;
+  const { authentication, content, items } = state;
+  const { user } = authentication;
   return {
+    authentication,
+    user,
     content,
     items
   };
@@ -84,6 +112,6 @@ function mapStateToProps(state) {
 // };
 
 export default {
-  component: connect(mapStateToProps, { fetchContent, fetchPortfolioItems, fetchRequiredData })(Portfolio),
+  component: connect(mapStateToProps, { fetchContent, fetchPortfolioItems, fetchRequiredData, fetchCurrentUser })(Portfolio),
   loadData: ({ dispatch }) => dispatch(fetchRequiredData())
 };

@@ -20,6 +20,20 @@ class PortfolioList extends React.Component {
     this.onListChanged = this.onListChanged.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.portfolioItem && nextProps.portfolioItem.addedItem &&
+      !this.state.items.includes(nextProps.portfolioItem.addedItem)) {
+      let itemList = this.state.items;
+      itemList = [nextProps.portfolioItem.addedItem, ...itemList]; //add new item
+
+      // const items = (this.props.toggleMode == 'preview' || !this.props.authenticatedUser) ? itemList.filter(item => item.private == false) : itemList;
+      const items = itemList;
+      this.setState({ items: items });
+      // this.props.onItemsChanged(items);
+      // this.props.dispatch(portfolioActions.clear());
+    }
+  }
+
   onListChanged(itemOrder) {
     const { items } = this.state;
     const updatedItemArr = [];
@@ -31,11 +45,6 @@ class PortfolioList extends React.Component {
     });
     this.setState({ items: updatedItemArr });
   }
-
-  componentDidMount() {
-    console.log('check', root.innerWidth);
-  }
-
 
   render() {
     const packeryOptions = {
@@ -61,9 +70,10 @@ class PortfolioList extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { authentication } = state;
+  const { authentication, portfolioItem, } = state;
   return {
     authentication,
+    portfolioItem,
   };
 }
 

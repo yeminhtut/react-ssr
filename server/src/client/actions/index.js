@@ -1,8 +1,11 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import 'whatwg-fetch';
+import { authHeader } from '../helpers';
 
 const cookies = new Cookies();
 const COOKIE_DOMAIN = { domain: '', path: '/' };
+const token = cookies.get('token');
 
 export const FETCH_USERS = 'fetch_users';
 export const fetchUsers = () => async (dispatch, getState, api) => {
@@ -46,9 +49,17 @@ export const userLogin = (data) => async (dispatch, getState) => {
 };
 
 export const FETCH_CURRENT_USER = 'fetch_current_user';
-export const fetchCurrentUser = () => async (dispatch, getState, api) => {
-  const res = await api.get('/current_user');
 
+export const fetchCurrentUser = (token) => async (dispatch, getState) => {
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+  };
+  const res = await axios.get('http://dev-west-api.content.co/api/v1/me/', requestOptions);
   dispatch({
     type: FETCH_CURRENT_USER,
     payload: res
@@ -87,5 +98,22 @@ export const fetchAdmins = () => async (dispatch, getState, api) => {
   dispatch({
     type: FETCH_ADMINS,
     payload: res
+  });
+};
+
+export const ADDITEM = 'add_item';
+export const addItem = (data, user) => async (dispatch, getState) => {
+
+  axios.post('http://dev-west-api.content.co/api/v1/portfolios/'+user.username+'/items/', data, {
+    headers: authHeader()
+  })
+  .then(function (res) {
+    dispatch({
+      type: ADDITEM,
+      payload: res.data
+    });
+  })
+  .catch(function (error) {
+    console.log(error);
   });
 };
