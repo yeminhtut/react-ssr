@@ -5,7 +5,6 @@ import Header from './components/Header';
 const App = ({ route }) => {
   return (
     <div>
-      <Header />
       {renderRoutes(route.routes)}
     </div>
   );

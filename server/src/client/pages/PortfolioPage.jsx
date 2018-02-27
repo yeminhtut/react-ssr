@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
 import { fetchContent, fetchPortfolioItems, fetchRequiredData, fetchCurrentUser } from '../actions';
 import { Helmet } from 'react-helmet';
+import Header from '../components/Header';
 import { PortfolioList } from '../components/PortfolioList';
 import { AddPortfolio } from '../components/AddPortfolio';
 
@@ -64,6 +65,7 @@ class Portfolio extends Component {
     return (
       <div>
         {this.head()}
+        <Header />
         <div className='portfolio__container'>
           <div className={`portfolio__toggle ${this.state.toggleMode}`}>
             <button
