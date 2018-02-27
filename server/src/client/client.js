@@ -15,11 +15,11 @@ import reducers from './reducers';
 import '../scss/base.scss';
 
 const axiosInstance = axios.create({
-  baseURL: '/api'
+  baseURL: 'http://dev-west-api.content.co/api/v1/'
 });
 
 const loggerMiddleware = createLogger();
-let middleWareList = applyMiddleware(thunkMiddleware, loggerMiddleware);
+let middleWareList = applyMiddleware(thunkMiddleware, loggerMiddleware, thunk.withExtraArgument(axiosInstance));
 const store = createStore(
   reducers,
   window.INITIAL_STATE,

@@ -5,12 +5,13 @@ import authReducer from './authReducer';
 import contentReducer from './contentReducer';
 import itemReducer from './itemReducer';
 import portfolioItem from './portfolioItem.reducer';
+import publicUserReducer from './publicUserReducer';
 
 export default combineReducers({
   // users: usersReducer,
   authentication: authReducer,
   // admins: adminsReducer,
-  content: contentReducer,
+  publicUser: publicUserReducer,
   items: itemReducer,
   portfolioItem: portfolioItem
 });

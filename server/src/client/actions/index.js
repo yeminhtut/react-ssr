@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import 'whatwg-fetch';
 import { authHeader } from '../helpers';
 
 const cookies = new Cookies();
@@ -18,18 +17,18 @@ export const fetchUsers = () => async (dispatch, getState, api) => {
 };
 
 //portfolio
-export const FETCH_CONTENT = 'fetch_content';
-export const fetchContent = () => async (dispatch, getState) => {
-  const res = await axios.get(`http://dev-west-api.content.co/api/v1/portfolios/ymh`);
+export const FETCH_PUBLIC_USER = 'fetch_public_user';
+export const fetchPublicUser = (username) => async (dispatch, getState) => {
+  const res = await axios.get(`http://dev-west-api.content.co/api/v1/portfolios/${username}`);
   dispatch({
-    type: FETCH_CONTENT,
+    type: FETCH_PUBLIC_USER,
     payload: res.data
   });
 };
 
 export const FETCH_PORTFOLIO_ITEMS = 'fetch_portfolio_items';
-export const fetchPortfolioItems = () => async (dispatch, getState) => {
-  const res = await axios.get(`http://dev-west-api.content.co/api/v1/portfolios/ymh/items/`);
+export const fetchPortfolioItems = (username) => async (dispatch, getState) => {
+  const res = await axios.get(`http://dev-west-api.content.co/api/v1/portfolios/${username}/items/`);
   dispatch({
     type: FETCH_PORTFOLIO_ITEMS,
     payload: res.data
@@ -50,7 +49,9 @@ export const userLogin = (data) => async (dispatch, getState) => {
 
 export const FETCH_CURRENT_USER = 'fetch_current_user';
 
-export const fetchCurrentUser = (token) => async (dispatch, getState) => {
+export const fetchCurrentUser = () => async (dispatch, getState, api) => {
+  // console.log('check server', api);
+  console.log('call this one');
   const requestOptions = {
     method: 'GET',
     headers: {
@@ -59,16 +60,21 @@ export const fetchCurrentUser = (token) => async (dispatch, getState) => {
       Authorization: `Token ${token}`,
     },
   };
+  console.log('options', api);
   const res = await axios.get('http://dev-west-api.content.co/api/v1/me/', requestOptions);
+  console.log('resp', res);
   dispatch({
     type: FETCH_CURRENT_USER,
     payload: res
   });
+
+  // const res = await api.get('/me');
+  // console.log('then',res);
 };
 
 export const FETCH_REQUIRED_DATA = 'fetch_required_data';
-export const fetchRequiredData = () => async (dispatch, getState) => {
-
+export const fetchRequiredData = (data) => async (dispatch, getState) => {
+  console.log('data', getState());
   function getUserAccount() {
     return axios.get('http://dev-west-api.content.co/api/v1/portfolios/ymh/');
   }
@@ -81,7 +87,7 @@ export const fetchRequiredData = () => async (dispatch, getState) => {
   .then(axios.spread(function (acct, perms) {
     // Both requests are now complete
     dispatch({
-      type: FETCH_CONTENT,
+      type: FETCH_PUBLIC_USER,
       payload: acct.data
     });
     dispatch({

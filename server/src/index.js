@@ -8,8 +8,13 @@ import createStore from './helpers/createStore';
 
 const app = express();
 
+app.use(
+  '/api',
+  proxy('http://dev-west-api.content.co/api/v1/')
+);
 app.use(express.static('public'));
 app.get('*', (req, res) => {
+  // console.log('server', req.headers.cookie);
   const store = createStore(req);
 
   const promises = matchRoutes(Routes, req.path)

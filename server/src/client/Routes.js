@@ -6,6 +6,7 @@ import NotFoundPage from './pages/NotFoundPage';
 // import AdminsListPage from './pages/AdminsListPage';
 import PortfolioPage from './pages/PortfolioPage';
 import LoginPage from './pages/LoginPage';
+import ReviewsPage from './pages/ReviewsPage';
 
 export default [
   {
@@ -15,6 +16,10 @@ export default [
         ...HomePage,
         path: '/',
         exact: true
+      },
+      {
+        ...ReviewsPage,
+        path: '/ratings'
       },
       {
         ...LoginPage,

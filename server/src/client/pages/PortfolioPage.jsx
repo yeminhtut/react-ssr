@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cookies from 'universal-cookie';
-import { fetchContent, fetchPortfolioItems, fetchRequiredData, fetchCurrentUser } from '../actions';
+import { fetchPublicUser, fetchPortfolioItems, fetchRequiredData, fetchCurrentUser } from '../actions';
 import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import { PortfolioList } from '../components/PortfolioList';
@@ -19,8 +19,10 @@ class Portfolio extends Component {
     this.toggleMode = this.toggleMode.bind(this);
   }
   componentWillMount() {
-    this.props.fetchContent();
-    this.props.fetchPortfolioItems();
+    //console.log(this.props);
+    const username = this.props.match.params.user;
+    this.props.fetchPublicUser(username);
+    this.props.fetchPortfolioItems(username);
     const token = cookies.get('token');
     if (token) {
       this.props.fetchCurrentUser(token);
@@ -98,22 +100,21 @@ class Portfolio extends Component {
 }
 
 function mapStateToProps(state) {
-  const { authentication, content, items } = state;
+  const { authentication, publicUser, items } = state;
   const { user } = authentication;
   return {
     authentication,
     user,
-    content,
+    publicUser,
     items
   };
 }
 
-// export default {
-//   component: connect(mapStateToProps, { fetchContent, fetchPortfolioItems })(Portfolio),
-//   loadData: ({ dispatch }) => dispatch(fetchContent(), dispatch(fetchPortfolioItems()))
-// };
+function loadData(store, match) {
+  return store.dispatch(fetchRequiredData());
+}
 
 export default {
-  component: connect(mapStateToProps, { fetchContent, fetchPortfolioItems, fetchRequiredData, fetchCurrentUser })(Portfolio),
-  loadData: ({ dispatch }) => dispatch(fetchRequiredData())
+  component: connect(mapStateToProps, { fetchPublicUser, fetchPortfolioItems, fetchRequiredData, fetchCurrentUser })(Portfolio),
+  loadData
 };
